@@ -34,7 +34,12 @@ fetch("data/galleries.json")
 const basket = getBasket();
 const fileName = getFileName(imagePath);
 
-if (basket.includes(fileName)) {
+const alreadyAdded = basket.some(item => {
+  if (typeof item === "string") return item === fileName;
+  return item.fileName === fileName;
+});
+
+if (alreadyAdded) {
   addToBasketBtn.textContent = "Added ✓";
 } else {
   addToBasketBtn.textContent = "Add to HD request basket";
@@ -62,14 +67,33 @@ function getBasket() {
 
 function saveBasket(basket) {
   localStorage.setItem("photoBasket", JSON.stringify(basket));
+  updateBasketCount();
+}
+
+function updateBasketCount() {
+  const basket = getBasket();
+  document.querySelectorAll(".basket-count").forEach(count => {
+    count.textContent = basket.length;
+  });
 }
 
 addToBasketBtn.addEventListener("click", () => {
-  const fileName = getFileName(images[currentIndex]);
+  const imagePath = cleanPath(images[currentIndex]);
+  const fileName = getFileName(imagePath);
+
   const basket = getBasket();
 
-  if (!basket.includes(fileName)) {
-    basket.push(fileName);
+  const alreadyAdded = basket.some(item => {
+    if (typeof item === "string") return item === fileName;
+    return item.fileName === fileName;
+  });
+
+  if (!alreadyAdded) {
+    basket.push({
+      fileName: fileName,
+      imagePath: imagePath
+    });
+
     saveBasket(basket);
   }
 
@@ -107,4 +131,5 @@ if (img.complete) {
       if (event.key === "ArrowLeft") showPrevious();
       if (event.key === "ArrowRight") showNext();
     });
+    updateBasketCount();
   });
