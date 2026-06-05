@@ -31,7 +31,14 @@ fetch("data/galleries.json")
 
       lightboxImg.src = `photos/${imagePath}`;
       imageName.textContent = getFileName(imagePath);
+const basket = getBasket();
+const fileName = getFileName(imagePath);
 
+if (basket.includes(fileName)) {
+  addToBasketBtn.textContent = "Added ✓";
+} else {
+  addToBasketBtn.textContent = "Add to HD request basket";
+}
       lightbox.classList.add("active");
       document.body.style.overflow = "hidden";
     }
@@ -48,7 +55,7 @@ fetch("data/galleries.json")
     function showNext() {
       showImage((currentIndex + 1) % images.length);
     }
-    
+
 function getBasket() {
   return JSON.parse(localStorage.getItem("photoBasket")) || [];
 }

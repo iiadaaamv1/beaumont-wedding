@@ -310,3 +310,47 @@ body::after {
 .basket-link:hover {
   transform: translateY(-1px);
 }
+
+.basket-page {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 24px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  color: #000;
+}
+
+.basket-page h1 {
+  margin-bottom: 10px;
+}
+
+.basket-page p {
+  margin-bottom: 20px;
+}
+
+.basket-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.basket-list li {
+  padding: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  font-family: monospace;
+}
+
+.basket-action {
+  padding: 10px 16px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.basket-action.secondary {
+  background: rgba(0,0,0,0.55);
+}
