@@ -25,9 +25,16 @@ const titles = {
 
       const firstImage = galleries[category][0];
 
-      card.innerHTML = `
-  <img src="photos/${firstImage.replace(/\\/g, "/")}" loading="lazy">
-  <h2>${titles[category.toLowerCase()] || category}</h2>
+      const rawImage = galleries[category][0];
+const imagePath = rawImage ? rawImage.replace(/\\/g, "/") : "";
+
+const displayTitle = titles[category] || category;
+
+card.innerHTML = `
+  <div class="card-image">
+    <img src="photos/${imagePath.replace(/\\/g, "/")}" loading="lazy">
+  </div>
+  <h2>${titles[category] || category}</h2>
 `;
 
       container.appendChild(card);
