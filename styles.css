@@ -237,12 +237,9 @@ body::after {
   font-size: 15px;
 }
 
-.lightbox {
-  touch-action: pan-y;
-}
 
 #lightboxImg {
-  touch-action: pan-y;
+  touch-action: auto;
   user-select: none;
   -webkit-user-select: none;
 }
