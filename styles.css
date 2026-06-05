@@ -92,80 +92,115 @@ body {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.96);
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 99999;
+  padding: 56px 72px 32px;
+}
+
+.lightbox.active {
+  display: flex;
 }
 
 .lightbox-content {
-  max-width: 90vw;
-  max-height: 90vh;
+  width: 100%;
+  height: 100%;
   text-align: center;
-}
-
-.lightbox-content img {
-  max-width: 90vw;
-  max-height: 82vh;
-  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .image-name {
   color: white;
   font-size: 14px;
   margin-bottom: 10px;
+  max-width: 90vw;
+  word-break: break-word;
+}
+
+#lightboxImg {
+  max-width: 100%;
+  max-height: calc(100vh - 120px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-close,
+.lightbox-arrow {
+  z-index: 100000;
 }
 
 .lightbox-close {
-  position: absolute;
-  top: 18px;
-  right: 24px;
-  background: none;
+  position: fixed;
+  top: 12px;
+  right: 22px;
+  background: rgba(255,255,255,0.18);
   border: none;
   color: white;
-  font-size: 42px;
+  font-size: 40px;
+  line-height: 1;
   cursor: pointer;
+  border-radius: 8px;
+  width: 52px;
+  height: 52px;
 }
 
 .lightbox-arrow {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.22);
   border: none;
   color: white;
-  font-size: 60px;
-  width: 56px;
-  height: 80px;
+  font-size: 56px;
+  line-height: 1;
+  width: 58px;
+  height: 82px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .lightbox-prev {
-  left: 20px;
+  left: 12px;
 }
 
 .lightbox-next {
-  right: 20px;
+  right: 12px;
 }
 
 @media (max-width: 700px) {
+  .lightbox {
+    padding: 54px 48px 24px;
+  }
+
   .lightbox-arrow {
     font-size: 42px;
-    width: 44px;
+    width: 40px;
     height: 64px;
   }
 
   .lightbox-prev {
-    left: 8px;
+    left: 4px;
   }
 
   .lightbox-next {
-    right: 8px;
+    right: 4px;
   }
 
-  .image-name {
-    font-size: 12px;
+  .lightbox-close {
+    width: 44px;
+    height: 44px;
+    font-size: 34px;
+    right: 10px;
+  }
+
+  #lightboxImg {
+    max-height: calc(100vh - 110px);
   }
 }
