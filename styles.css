@@ -254,7 +254,7 @@ body::after {
 
 .site-logo {
   display: block;
-  width: min(500px, 95vw);
+  width: min(600px, 95vw);
   height: auto;
   margin: 0 auto;
 
