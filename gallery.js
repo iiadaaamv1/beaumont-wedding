@@ -56,7 +56,13 @@ fetch("data/galleries.json")
       img.src = `photos/${cleanImagePath}`;
       img.loading = "lazy";
       img.alt = getFileName(cleanImagePath);
-
+if (img.complete) {
+  img.classList.add("loaded");
+} else {
+  img.addEventListener("load", () => {
+    img.classList.add("loaded");
+  });
+}
       img.addEventListener("click", () => {
         showImage(index);
       });
