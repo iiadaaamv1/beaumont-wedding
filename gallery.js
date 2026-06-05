@@ -15,8 +15,6 @@ fetch("data/galleries.json")
     const nextBtn = document.getElementById("nextBtn");
 
     let currentIndex = 0;
-    let touchStartX = 0;
-    let touchEndX = 0;
 
     function cleanPath(filePath) {
       return filePath.replace(/\\/g, "/");
@@ -44,23 +42,24 @@ fetch("data/galleries.json")
     }
 
     function showPrevious() {
-      const newIndex = (currentIndex - 1 + images.length) % images.length;
-      showImage(newIndex);
+      showImage((currentIndex - 1 + images.length) % images.length);
     }
 
     function showNext() {
-      const newIndex = (currentIndex + 1) % images.length;
-      showImage(newIndex);
+      showImage((currentIndex + 1) % images.length);
     }
 
     images.forEach((imgPath, index) => {
       const cleanImagePath = cleanPath(imgPath);
 
       const img = document.createElement("img");
-img.src = `photos/${cleanImagePath}`;
-img.loading = "lazy";
-img.alt = getFileName(cleanImagePath);
+      img.src = `photos/${cleanImagePath}`;
+      img.loading = "lazy";
+      img.alt = getFileName(cleanImagePath);
 
+      img.addEventListener("click", () => {
+        showImage(index);
+      });
 
       grid.appendChild(img);
     });
@@ -76,31 +75,4 @@ img.alt = getFileName(cleanImagePath);
       if (event.key === "ArrowLeft") showPrevious();
       if (event.key === "ArrowRight") showNext();
     });
-    lightbox.addEventListener("touchstart", event => {
-  touchStartX = event.changedTouches[0].screenX;
-});
-
-let touchStartX = 0;
-let touchStartY = 0;
-
-lightboxImg.addEventListener("touchstart", event => {
-  touchStartX = event.touches[0].clientX;
-  touchStartY = event.touches[0].clientY;
-}, { passive: true });
-
-lightboxImg.addEventListener("touchend", event => {
-  const touchEndX = event.changedTouches[0].clientX;
-  const touchEndY = event.changedTouches[0].clientY;
-
-  const diffX = touchEndX - touchStartX;
-  const diffY = touchEndY - touchStartY;
-
-  if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
-    if (diffX > 0) {
-      showPrevious();
-    } else {
-      showNext();
-    }
-  }
-}, { passive: true });
   });
