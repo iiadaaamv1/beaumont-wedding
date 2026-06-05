@@ -398,22 +398,20 @@ body::after {
   font-size: 12px;
 }
 
-.basket-item {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 14px;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.15);
-}
-
-.basket-thumb img,
-.basket-placeholder {
+.basket-thumb {
   width: 80px;
   height: 80px;
-  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.basket-thumb img {
+  width: 80px;
+  height: 80px;
+  max-width: 80px;
+  max-height: 80px;
   object-fit: cover;
-  background: rgba(0,0,0,0.12);
+  display: block;
 }
 
 .basket-placeholder {
