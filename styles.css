@@ -287,3 +287,26 @@ body::after {
   filter: blur(0);
   transform: scale(1);
 }
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 0;
+}
+
+.basket-link {
+  display: inline-block;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.92);
+  color: black;
+  text-decoration: none;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.basket-link:hover {
+  transform: translateY(-1px);
+}

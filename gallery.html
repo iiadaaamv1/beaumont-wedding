@@ -13,14 +13,22 @@
 
 <body>
 
-<a class="home-button" href="index.html">← Home</a>
+<div class="top-nav">
+  <a class="home-button" href="index.html">← Home</a>
+
+  <a class="basket-link" href="basket.html">
+    🖼️ HD Request Basket
+  </a>
+</div>
 
 <div id="photoGrid" class="photo-grid"></div>
 
 <div id="lightbox" class="lightbox">
   <button id="closeBtn" class="lightbox-close" type="button">×</button>
   <button id="prevBtn" class="lightbox-arrow lightbox-prev" type="button">‹</button>
-
+<button id="addToBasketBtn" class="basket-button">
+  Add to HD request basket
+</button>
   <div class="lightbox-content">
     <div id="imageName" class="image-name"></div>
     <img id="lightboxImg" alt="">

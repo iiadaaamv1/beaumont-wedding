@@ -13,7 +13,7 @@ fetch("data/galleries.json")
     const closeBtn = document.getElementById("closeBtn");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
-
+    const addToBasketBtn = document.getElementById("addToBasketBtn");
     let currentIndex = 0;
 
     function cleanPath(filePath) {
@@ -48,7 +48,26 @@ fetch("data/galleries.json")
     function showNext() {
       showImage((currentIndex + 1) % images.length);
     }
+    
+function getBasket() {
+  return JSON.parse(localStorage.getItem("photoBasket")) || [];
+}
 
+function saveBasket(basket) {
+  localStorage.setItem("photoBasket", JSON.stringify(basket));
+}
+
+addToBasketBtn.addEventListener("click", () => {
+  const fileName = getFileName(images[currentIndex]);
+  const basket = getBasket();
+
+  if (!basket.includes(fileName)) {
+    basket.push(fileName);
+    saveBasket(basket);
+  }
+
+  addToBasketBtn.textContent = "Added ✓";
+});
     images.forEach((imgPath, index) => {
       const cleanImagePath = cleanPath(imgPath);
 
