@@ -278,3 +278,13 @@ body::after {
   transform: scale(1.01);
   transition: transform 0.3s ease;
 }
+
+.photo-grid img {
+  background: rgba(255,255,255,0.18);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.photo-grid img.loaded {
+  opacity: 1;
+}
