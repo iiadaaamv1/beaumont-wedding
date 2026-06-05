@@ -11,7 +11,7 @@ const titles = {
   reception: "Reception",
   "getting-ready": "Getting Ready",
   family: "Family",
-  "lucy-adams": "Lucy & Adam",
+  "lucy-adam": "Lucy & Adam",
   "post-ceremony": "Post-Ceremony",
   "pre-ceremony": "Pre-Ceremony",
   "wedding-breakfast": "Wedding Breakfast",
@@ -26,9 +26,9 @@ const titles = {
       const firstImage = galleries[category][0];
 
       card.innerHTML = `
-        <img src="photos/${firstImage}" loading="lazy">
-        <h2>${category}</h2>
-      `;
+  <img src="photos/${firstImage.replace(/\\/g, "/")}" loading="lazy">
+  <h2>${titles[category.toLowerCase()] || category}</h2>
+`;
 
       container.appendChild(card);
     });
