@@ -257,6 +257,7 @@ body::after {
 .site-header {
   text-align: center;
   padding: 30px 20px;
+  margin-bottom: 10px;
 }
 
 .site-logo {
@@ -266,7 +267,14 @@ body::after {
   margin: 0 auto;
 
   filter:
-    drop-shadow(0 0 10px rgba(0,255,200,0.3))
-    drop-shadow(0 0 20px rgba(180,100,255,0.3));
+    drop-shadow(0 0 8px rgba(0,255,200,0.35))
+    drop-shadow(0 0 18px rgba(0,255,200,0.25))
+    drop-shadow(0 0 12px rgba(180,100,255,0.35))
+    drop-shadow(0 0 24px rgba(180,100,255,0.25))
+    drop-shadow(0 6px 12px rgba(0,0,0,0.4));
 }
 
+.site-logo:hover {
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
+}
