@@ -61,9 +61,6 @@ img.src = `photos/${cleanImagePath}`;
 img.loading = "lazy";
 img.alt = getFileName(cleanImagePath);
 
-img.addEventListener("load", () => {
-  img.classList.add("loaded");
-});
 
       grid.appendChild(img);
     });

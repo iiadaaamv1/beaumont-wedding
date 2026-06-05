@@ -88,14 +88,6 @@ body::after {
   padding: 20px;
 }
 
-.photo-grid img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
 .card-image {
   width: 100%;
   height: 180px;
@@ -262,7 +254,7 @@ body::after {
 
 .site-logo {
   display: block;
-  width: min(800px, 95vw);
+  width: min(500px, 95vw);
   height: auto;
   margin: 0 auto;
 
@@ -280,6 +272,9 @@ body::after {
 }
 
 .photo-grid img {
-  background: rgba(255,255,255,0.18);
-  transition: opacity 0.35s ease;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 8px;
 }
