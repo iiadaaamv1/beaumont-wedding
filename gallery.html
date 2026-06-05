@@ -13,15 +13,23 @@
 
 <body>
 
-<a href="index.html">← Back</a>
+<a class="back-link" href="index.html">← Back</a>
 
 <div id="photoGrid" class="photo-grid"></div>
 
-<div class="lightbox" id="lightbox">
-  <img id="lightboxImg">
+<div id="lightbox" class="lightbox">
+  <button id="closeBtn" class="lightbox-close" type="button">×</button>
+  <button id="prevBtn" class="lightbox-arrow lightbox-prev" type="button">‹</button>
+
+  <div class="lightbox-content">
+    <div id="imageName" class="image-name"></div>
+    <img id="lightboxImg" alt="">
+  </div>
+
+  <button id="nextBtn" class="lightbox-arrow lightbox-next" type="button">›</button>
 </div>
 
-<script src="gallery.js"></script>
+<script src="gallery.js?v=3"></script>
 
 </body>
 </html>
