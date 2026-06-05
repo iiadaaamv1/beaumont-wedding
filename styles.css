@@ -254,3 +254,19 @@ body::after {
   -webkit-user-select: none;
 }
 
+.site-header {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.site-logo {
+  display: block;
+  width: min(800px, 95vw);
+  height: auto;
+  margin: 0 auto;
+
+  filter:
+    drop-shadow(0 0 10px rgba(0,255,200,0.3))
+    drop-shadow(0 0 20px rgba(180,100,255,0.3));
+}
+
