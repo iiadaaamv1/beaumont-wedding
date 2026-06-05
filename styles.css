@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #4400ff;
+  background: #ffffff;
 }
 
 /* =========================
@@ -25,14 +25,14 @@ body {
 ========================= */
 
 .gallery-card {
-  background: #c41010;
+  background: #000000;
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
-  color: #7813d5;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 8px rgba(171, 216, 8, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-card img {
