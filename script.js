@@ -32,8 +32,21 @@ fetch("data/galleries.json")
 
     const container = document.getElementById("gallery-grid");
 
-    Object.keys(galleries).forEach(category => {
-      const card = document.createElement("a");
+const galleryOrder = [
+  "all",
+  "getting-ready",
+  "pre-ceremony",
+  "ceremony",
+  "post-ceremony",
+  "wedding-breakfast",
+  "reception",
+  "family",
+  "best-men",
+  "bridesmaids",
+  "lucy-adam", 
+];
+
+galleryOrder.forEach(category => {      const card = document.createElement("a");
       card.className = "gallery-card";
       card.href = `gallery.html?folder=${encodeURIComponent(category)}`;
 
